@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="orderDonutsButton" contentDisplay="TOP" layoutX="32.0" layoutY="53.0" mnemonicParsing="false" prefHeight="166.0" prefWidth="66.0" text="Order Donuts">
+         <graphic>
+            <ImageView fitHeight="125.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/donuts.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="orderCoffeeButton" contentDisplay="TOP" layoutX="209.0" layoutY="54.0" mnemonicParsing="false" prefHeight="149.0" prefWidth="185.0" text="Order Coffee">
+         <graphic>
+            <ImageView fitHeight="133.0" fitWidth="187.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/coffee.jpeg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="yourOrderButton" contentDisplay="TOP" layoutX="439.0" layoutY="53.0" mnemonicParsing="false" text="Your Order">
+         <graphic>
+            <ImageView fitHeight="81.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/yourOrder.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="storeOrderButton" contentDisplay="TOP" layoutX="440.0" layoutY="185.0" mnemonicParsing="false" text="Store Order">
+         <graphic>
+            <ImageView fitHeight="73.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/checklist.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
