@@ -4,11 +4,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project4.MainController">
    <children>
-      <Button fx:id="orderDonutsButton" contentDisplay="TOP" layoutX="32.0" layoutY="53.0" mnemonicParsing="false" prefHeight="166.0" prefWidth="66.0" text="Order Donuts">
+      <Button fx:id="orderDonutsButton" contentDisplay="TOP" layoutX="33.0" layoutY="118.0" mnemonicParsing="false" onAction="#openOrderDonuts" prefHeight="166.0" prefWidth="66.0" text="Order Donuts">
          <graphic>
             <ImageView fitHeight="125.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -17,7 +18,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="orderCoffeeButton" contentDisplay="TOP" layoutX="209.0" layoutY="54.0" mnemonicParsing="false" prefHeight="149.0" prefWidth="185.0" text="Order Coffee">
+      <Button fx:id="orderCoffeeButton" contentDisplay="TOP" layoutX="208.0" layoutY="119.0" mnemonicParsing="false" onAction="#openOrderCoffee" prefHeight="149.0" prefWidth="185.0" text="Order Coffee">
          <graphic>
             <ImageView fitHeight="133.0" fitWidth="187.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,7 +27,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="yourOrderButton" contentDisplay="TOP" layoutX="439.0" layoutY="53.0" mnemonicParsing="false" text="Your Order">
+      <Button fx:id="yourOrderButton" contentDisplay="TOP" layoutX="439.0" layoutY="53.0" mnemonicParsing="false" onAction="#openYourOrder" text="Your Order">
          <graphic>
             <ImageView fitHeight="81.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -35,7 +36,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="storeOrderButton" contentDisplay="TOP" layoutX="440.0" layoutY="185.0" mnemonicParsing="false" text="Store Order">
+      <Button fx:id="storeOrderButton" contentDisplay="TOP" layoutX="440.0" layoutY="185.0" mnemonicParsing="false" onAction="#openStoreOrder" text="Store Order">
          <graphic>
             <ImageView fitHeight="73.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -44,5 +45,10 @@
             </ImageView>
          </graphic>
       </Button>
+      <Text fx:id="cafeTitleText" fill="#14488f" layoutX="39.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RU Cafe" wrappingWidth="222.0">
+         <font>
+            <Font name="American Typewriter" size="47.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

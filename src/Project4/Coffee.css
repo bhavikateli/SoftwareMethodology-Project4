@@ -1,0 +1,22 @@
+AnchorPane{
+    -fx-background-color: #83e080;
+    -fx-font-weight: bold;
+    -fx-text-fill: #246b49;
+}
+
+Button{
+    -fx-font-weight: bold;
+    -fx-text-fill: #246b49;
+    -fx-background-color: rgb(168, 255, 250);
+}
+
+ComboBox{
+    -fx-font-weight: bold;
+    -fx-text-fill: #246b49;
+    -fx-background-color: rgb(168, 255, 250);
+}
+
+CheckBox{
+    -fx-font-weight: bold;
+    -fx-text-fill: #246b49;
+}

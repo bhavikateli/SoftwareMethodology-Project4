@@ -1,0 +1,12 @@
+
+AnchorPane{
+    -fx-background-color: #79a1e3;
+    -fx-font-weight: bold;
+
+}
+
+Button{
+    -fx-font-weight: bold;
+    -fx-text-fill: #14488f;
+    -fx-background-color: rgb(88, 191, 231);
+}
