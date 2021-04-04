@@ -21,33 +21,33 @@
             <Image url="@../images/coffee.jpeg" />
          </image>
       </ImageView>
-      <CheckBox fx:id="creamCheckboxOption" layoutX="55.0" layoutY="252.0" mnemonicParsing="false" text="Cream">
+      <CheckBox fx:id="creamCheckboxOption" layoutX="55.0" layoutY="252.0" mnemonicParsing="false" onAction="#calculateTotal" text="Cream">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="milkCheckboxOption" layoutX="55.0" layoutY="299.0" mnemonicParsing="false" text="Milk">
+      <CheckBox fx:id="milkCheckboxOption" layoutX="55.0" layoutY="299.0" mnemonicParsing="false" onAction="#calculateTotal" text="Milk">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="whippedCreamCheckboxOption" layoutX="55.0" layoutY="344.0" mnemonicParsing="false" text="Whipped Cream">
+      <CheckBox fx:id="whippedCreamCheckboxOption" layoutX="55.0" layoutY="344.0" mnemonicParsing="false" onAction="#calculateTotal" text="Whipped Cream">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="syrupCheckboxOption" layoutX="183.0" layoutY="252.0" mnemonicParsing="false" text="Syrup">
+      <CheckBox fx:id="syrupCheckboxOption" layoutX="183.0" layoutY="252.0" mnemonicParsing="false" onAction="#calculateTotal" text="Syrup">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="caramelCheckboxOption" layoutX="183.0" layoutY="299.0" mnemonicParsing="false" text="Caramel">
+      <CheckBox fx:id="caramelCheckboxOption" layoutX="183.0" layoutY="299.0" mnemonicParsing="false" onAction="#calculateTotal" text="Caramel">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <ComboBox fx:id="sizeCombobox" layoutX="322.0" layoutY="249.0" prefHeight="27.0" prefWidth="123.0" promptText="Size" />
-      <ComboBox fx:id="quantityCombobox" layoutX="320.0" layoutY="293.0" prefHeight="27.0" prefWidth="123.0" promptText="Quantity" />
+      <ComboBox fx:id="sizeCombobox" layoutX="322.0" layoutY="249.0" onAction="#calculateTotal" prefHeight="27.0" prefWidth="123.0" promptText="Size" />
+      <ComboBox fx:id="quantityCombobox" layoutX="320.0" layoutY="293.0" onAction="#calculateTotal" prefHeight="27.0" prefWidth="123.0" promptText="Quantity" />
       <TextField fx:id="totalTextArea" layoutX="322.0" layoutY="340.0" prefHeight="27.0" prefWidth="123.0" />
       <Button fx:id="addToOrderButton" layoutX="336.0" layoutY="389.0" mnemonicParsing="false" onAction="#addToOrder" text="Add to Order" />
    </children>

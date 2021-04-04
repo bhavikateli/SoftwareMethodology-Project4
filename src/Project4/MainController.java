@@ -47,12 +47,15 @@ public class MainController {
         }
     }
 
+    /**
+     * Method to open Donut GUI
+     */
     @FXML
     void openOrderDonuts() {
         try{
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("OrderDonut.fxml"));
-            Scene scene = new Scene(loader.load(), 450, 430);
+            Scene scene = new Scene(loader.load(), 520, 456);
             Stage stage = new Stage();
             stage.setTitle("Order Donuts");
             stage.setScene(scene);
@@ -63,6 +66,9 @@ public class MainController {
         }
     }
 
+    /**
+     * Method to open Store Orders GUI
+     */
     @FXML
     void openStoreOrder() {
         try{
@@ -78,6 +84,9 @@ public class MainController {
         }
     }
 
+    /**
+     * Method to open Your Orders GUI
+     */
     @FXML
     void openYourOrder() {
         try{

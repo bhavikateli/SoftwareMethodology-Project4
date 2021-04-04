@@ -1,10 +1,9 @@
 package Project4;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
@@ -23,25 +22,10 @@ public class OrderCoffeeController {
     private ImageView coffeImage;
 
     @FXML
-    private CheckBox creamCheckboxOption;
+    private CheckBox creamCheckboxOption, milkCheckboxOption, whippedCreamCheckboxOption, syrupCheckboxOption, caramelCheckboxOption;
 
     @FXML
-    private CheckBox milkCheckboxOption;
-
-    @FXML
-    private CheckBox whippedCreamCheckboxOption;
-
-    @FXML
-    private CheckBox syrupCheckboxOption;
-
-    @FXML
-    private CheckBox caramelCheckboxOption;
-
-    @FXML
-    private ComboBox<?> sizeCombobox;
-
-    @FXML
-    private ComboBox<?> quantityCombobox;
+    private ComboBox<String> sizeCombobox, quantityCombobox;
 
     @FXML
     private TextField totalTextArea;
@@ -49,8 +33,86 @@ public class OrderCoffeeController {
     @FXML
     private Button addToOrderButton;
 
+    private ObservableList<String> size = FXCollections.observableArrayList("Short", "Tall", "Grande", "Venti");
+    private ObservableList<String> quantity = FXCollections.observableArrayList("1", "2", "3", "4", "5");
+    final static private double ROUNDER = 100.0;
+
+
+    Coffee currCoffee = new Coffee();
+
+    /**
+     * Method to intialize items in GUI
+     */
+    public void initialize() {
+        sizeCombobox.setItems(size);
+        quantityCombobox.setItems(quantity);
+
+        totalTextArea.setEditable(false);
+
+    }
+
+    /**
+     *
+     */
+    public void checkboxListeners() {
+
+        if (caramelCheckboxOption.isSelected() == true) {
+            currCoffee.newAddIn(caramelCheckboxOption.getText());
+        } else if (creamCheckboxOption.isSelected() == true) {
+            currCoffee.newAddIn(creamCheckboxOption.getText());
+        } else if (milkCheckboxOption.isSelected() == true) {
+            currCoffee.newAddIn(milkCheckboxOption.getText());
+        } else if (syrupCheckboxOption.isSelected() == true) {
+            currCoffee.newAddIn(syrupCheckboxOption.getText());
+        } else if (whippedCreamCheckboxOption.isSelected() == true) {
+            currCoffee.newAddIn(whippedCreamCheckboxOption.getText());
+        } else if (caramelCheckboxOption.isSelected() != true) {
+            currCoffee.removeAddIn(caramelCheckboxOption.getText());
+        } else if (creamCheckboxOption.isSelected() != true) {
+            currCoffee.removeAddIn(creamCheckboxOption.getText());
+        } else if (milkCheckboxOption.isSelected() != true) {
+            currCoffee.removeAddIn(milkCheckboxOption.getText());
+        } else if (syrupCheckboxOption.isSelected() != true) {
+            currCoffee.removeAddIn(syrupCheckboxOption.getText());
+        } else if (whippedCreamCheckboxOption.isSelected() != true) {
+            currCoffee.removeAddIn(whippedCreamCheckboxOption.getText());
+        }
+    }
+
+    /**
+     * Method to calculate subtotal of coffee
+     */
+    @FXML
+    public void calculateTotal(){
+
+        if(sizeCombobox.getValue() != null && quantityCombobox.getValue() != null) {
+            currCoffee.setSize(sizeCombobox.getValue());
+            currCoffee.setQuantity(Integer.parseInt(quantityCombobox.getValue()));
+
+            checkboxListeners();
+
+            double price = Math.round(currCoffee.itemPrice() * ROUNDER) / ROUNDER;
+            String result = "$" + price;
+
+            totalTextArea.setText(result);
+        }
+
+    }
+
+    /**
+     * Method to add items to order
+     */
     @FXML
     void addToOrder() {
+        if(sizeCombobox.getValue() != null && quantityCombobox.getValue() != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("Order has been added!");
+            alert.showAndWait();
+        } else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Input size and quantity!");
+            alert.showAndWait();
+        }
 
     }
 

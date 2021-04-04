@@ -14,10 +14,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    @Override
     /**
-     * Method to start up the main GUI
+     * Start up the main GUI
      */
+    @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         primaryStage.setTitle("RU Cafe");
