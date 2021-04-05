@@ -64,6 +64,32 @@ public class Coffee extends MenuItem implements Customizable{
     }
 
     /**
+     * Helper method to get a string version of Coffee
+     * @return String with coffee information
+     */
+    public String toString(){
+
+        String addins = "";
+
+        for(int i = 0; i <= addInList.size(); i++){
+
+            if(addInList.size() == 0){
+                addins = "No addins";
+                break;
+            }
+
+            if(addInList.size() == 1 || i == addInList.size()-1){
+                addins = addins + addInList.get(i);
+                break;
+            }
+            addins = addins + addInList.get(i) + ", ";
+        }
+
+        return this.size + " Coffee (" + this.quantity + ") [" + addins + "]";
+
+    }
+
+    /**
      * Method to update addIn variable and list
      * @param addIn name
      */
@@ -112,13 +138,6 @@ public class Coffee extends MenuItem implements Customizable{
     public void setSize(String size) {
         this.size = size;
     }
-
-    /**
-     * Method to return addins of coffee
-     * @return addinslist
-     */
-    public ArrayList getAddin() { return addInList; }
-
 
     /**
      * Method to add item

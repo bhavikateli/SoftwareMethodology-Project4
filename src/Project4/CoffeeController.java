@@ -53,8 +53,6 @@ public class CoffeeController {
         sizeCombobox.setItems(size);
         quantityCombobox.setItems(quantity);
 
-        totalTextArea.setText(String.valueOf(currOrder.getSubTotal()));
-
         totalTextArea.setEditable(false);
         checkboxListeners();
 
@@ -153,6 +151,8 @@ public class CoffeeController {
         if(sizeCombobox.getValue() != null && quantityCombobox.getValue() != null) {
             currOrder.add(currCoffee);
             currOrder.setSubTotal(Math.round(currCoffee.itemPrice() * ROUNDER) / ROUNDER);
+            currOrder.setSalesTax();
+            currOrder.setTotal();
             Stage stage=(Stage) addToOrderButton.getScene().getWindow();
             stage.close();
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

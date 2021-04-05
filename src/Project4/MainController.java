@@ -72,6 +72,7 @@ public class MainController {
             Stage stage = new Stage();
             stage.setTitle("Store Order");
             stage.setScene(scene);
+            scene.getStylesheets().add(getClass().getResource("Main.css").toExternalForm());
             stage.show();
         } catch(IOException e){
             e.printStackTrace();
@@ -90,6 +91,7 @@ public class MainController {
             Stage stage = new Stage();
             stage.setTitle("Your Order");
             stage.setScene(scene);
+            scene.getStylesheets().add(getClass().getResource("Main.css").toExternalForm());
             stage.show();
         } catch(IOException e){
             e.printStackTrace();

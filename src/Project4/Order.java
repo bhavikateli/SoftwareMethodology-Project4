@@ -1,16 +1,20 @@
 package Project4;
-
-import java.io.DataInput;
 import java.util.ArrayList;
+
+
+/**
+ * Class that holds information about a customers current order
+ *
+ * @author Bhavika Teli and Eduardo Alba
+ */
 
 public class Order implements Customizable{
 
-    private static final String NOT_FOUND = "-1";
     double subTotal = 0;
-    double salesTax = (subTotal * 0.0625);
-    double total = subTotal + salesTax;
+    double salesTax = 0;
+    double total = 0;
 
-    ArrayList<MenuItem> orderList = new ArrayList<>();
+    public ArrayList<MenuItem> orderList = new ArrayList<>();
 
     /**
      * Method to add item
@@ -30,13 +34,37 @@ public class Order implements Customizable{
         return false;
     }
 
+    /**
+     * Helper method to clear order list
+     */
+    public void clear(){
+        orderList.clear();
+        subTotal = 0;
+        salesTax = 0;
+        total = 0;
+    }
+
+
+    /**
+     * Helper method to populate order view list
+     * @return string version of orderList
+     */
     public ArrayList<String> getStringArray(){
 
         ArrayList<String> result = new ArrayList<>();
         for(int i = 0; i < orderList.size(); i++){
             result.add(orderList.get(i).toString());
         }
-        return new ArrayList<>();
+
+        return result;
+    }
+
+    /**
+     * Helper method to return orderList
+     * @return orderList Array
+     */
+    public ArrayList getOrderList(){
+        return orderList;
     }
 
     /**
@@ -48,24 +76,16 @@ public class Order implements Customizable{
         if(orderList.size() <= 0) {
             return false;
         }
-        if (obj instanceof Donut || obj instanceof Coffee) {
-            orderList.remove(obj);
+        if (obj instanceof Donut) {
+            Donut donutCoffee = (Donut) obj;
+            orderList.remove(donutCoffee);
+            return true;
+        }else if(obj instanceof Coffee){
+            Coffee coffee = (Coffee) obj;
+            orderList.remove(coffee);
             return true;
         }
         return false;
-    }
-
-    /**
-     * Method to convert order items into strings
-     * @param obj to convert
-     * @return string with item information
-     */
-    public String toString(Object obj){
-        if(obj instanceof Donut || obj instanceof Coffee){
-            MenuItem donutCoffee = (MenuItem) obj;
-            return donutCoffee.toString();
-        }
-        return NOT_FOUND;
     }
 
     /**
@@ -74,6 +94,20 @@ public class Order implements Customizable{
      */
     public void setSubTotal(double subtotal){
         this.subTotal = this.subTotal + subtotal;
+    }
+
+    /**
+     * Helper method to set subtotal
+     */
+    public void setSalesTax() {
+        this.salesTax = subTotal * 0.0625;
+    }
+
+    /**
+     * Helper method to set total
+     */
+    public void setTotal(){
+        this.total = subTotal + salesTax;
     }
 
     /**

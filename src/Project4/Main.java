@@ -14,8 +14,8 @@ import javafx.stage.Stage;
  */
 
 public class Main extends Application {
-    public static Order currOrder = new Order();
-    public static StoreOrder storeOrder = new StoreOrder();
+    protected static Order currOrder = new Order();
+    protected static StoreOrder storeOrder = new StoreOrder();
 
     /**
      * Start up the main GUI

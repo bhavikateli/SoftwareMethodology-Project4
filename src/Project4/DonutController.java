@@ -7,12 +7,9 @@ import javafx.scene.text.Text;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
 import static Project4.Main.currOrder;
-
 
 
 /**
@@ -64,7 +61,6 @@ public class DonutController {
         donutAmountComboBox.setItems(quantity);
 
         subtotalTextArea.setEditable(false);
-        //addToOrderButton.setDisable(true);
 
     }
 
@@ -151,11 +147,13 @@ public class DonutController {
             }
             double total= Double.parseDouble(calculateSubtotal());
             currOrder.setSubTotal(total);
+            currOrder.setSalesTax();
+            currOrder.setTotal();
             Stage stage=(Stage) addDonutButton.getScene().getWindow();
             stage.close();
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setHeaderText("Order has been added!" + currOrder.getSubTotal());
+            alert.setHeaderText("Order has been added!");
             alert.showAndWait();
         } else{
         Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -165,6 +163,12 @@ public class DonutController {
 
     }
 
+    /**
+     * Helper method to create a donut
+     * @param donutDetails information about donut
+     * @param i index of donut in orders
+     * @return donut with information from string donutDetails
+     */
     public Donut getDetails(String donutDetails, int i){
 
         String type = "";
