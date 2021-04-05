@@ -1,44 +1,39 @@
 package Project4;
 
-import javafx.beans.value.ObservableStringValue;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import javafx.stage.Stage;
 
-import javax.script.Bindings;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+import static Project4.Main.currOrder;
+
 
 
 /**
- * Controller class to give functionality to OrderDonut.fxml
+ * Controller class to give functionality to Donut.fxml
  *
  * @author Bhavika Teli and Eduardo Alba
  */
 
-public class OrderDonutController {
+public class DonutController {
 
     @FXML
     private Text donutText;
 
     @FXML
-    private ComboBox<String> donutSelectionComboBox;
+    private ComboBox<String> donutSelectionComboBox, donutAmountComboBox;
 
     @FXML
-    private ListView<String> flavorSelectionListView;
+    private ListView<String> flavorSelectionListView, finalDonutsListView;
 
     @FXML
-    private ListView<String> finalDonutsListView;
-
-    @FXML
-    private ComboBox<String> donutAmountComboBox;
-
-    @FXML
-    private Button addDonutButton;
-
-    @FXML
-    private Button removeDonutButton;
+    private Button addDonutButton, removeDonutButton, addToOrderButton;
 
     @FXML
     private Text subtotalText;
@@ -46,8 +41,6 @@ public class OrderDonutController {
     @FXML
     private TextField subtotalTextArea;
 
-    @FXML
-    private Button addToOrderButton;
 
     ArrayList<String> orders = new ArrayList<>();
     ArrayList<Double> orderPrices = new ArrayList<>();
@@ -71,7 +64,7 @@ public class OrderDonutController {
         donutAmountComboBox.setItems(quantity);
 
         subtotalTextArea.setEditable(false);
-        addToOrderButton.setDisable(true);
+        //addToOrderButton.setDisable(true);
 
     }
 
@@ -101,7 +94,7 @@ public class OrderDonutController {
         if (flavorSelectionListView.getSelectionModel().getSelectedItem() != null
                 && donutAmountComboBox.getValue() != null
                 && donutSelectionComboBox.getValue() != null) {
-            addToOrderButton.setDisable(false);
+            //addToOrderButton.setDisable(false);
             currDonut.setFlavor(flavorSelectionListView.getSelectionModel().getSelectedItem());
             currDonut.setQuantity(Integer.parseInt(donutAmountComboBox.getValue()));
             orders.add(currDonut.toString());
@@ -150,16 +143,44 @@ public class OrderDonutController {
     @FXML
     void addToOrder() {
 
-       // if(finalDonutsListView.getSelectionModel().isEmpty() != true){
+        if(Bindings.isEmpty(finalDonutsListView.getItems()).get() == false){
+
+            for(int i = 0; i < orders.size(); i++){
+                Donut donut = getDetails(orders.get(i), i);
+                currOrder.add(donut);
+            }
+            double total= Double.parseDouble(calculateSubtotal());
+            currOrder.setSubTotal(total);
+            Stage stage=(Stage) addDonutButton.getScene().getWindow();
+            stage.close();
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setHeaderText("Order has been added!");
+            alert.setHeaderText("Order has been added!" + currOrder.getSubTotal());
             alert.showAndWait();
-       /* } else{
+        } else{
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setHeaderText("Input type, flavor and quantity!");
+        alert.setHeaderText("Input a type, flavor and quantity!");
         alert.showAndWait();
         }
-        */
+
+    }
+
+    public Donut getDetails(String donutDetails, int i){
+
+        String type = "";
+        String flavor = "";
+        String quantity = "0";
+        double price = orderPrices.get(i);
+
+        StringTokenizer tokenizer = new StringTokenizer(donutDetails, ",");
+        while (tokenizer.hasMoreTokens()){
+            type = tokenizer.nextToken();
+            flavor = tokenizer.nextToken();
+            quantity = tokenizer.nextToken();
+        }
+
+        Donut donut = new Donut(price,Integer.parseInt(quantity),type,flavor );
+        return donut;
     }
 
     /**

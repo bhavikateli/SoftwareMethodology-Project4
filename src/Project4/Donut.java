@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * An instance of menuItem created to store data about donuts
  *
- * @author Bhavika Teli and Eduardo Alb
+ * @author Bhavika Teli and Eduardo Alba
  */
 
 public class Donut extends MenuItem implements Customizable{
@@ -92,14 +92,8 @@ public class Donut extends MenuItem implements Customizable{
     public boolean remove(Object obj) {
         if(obj instanceof Donut){
             Donut donut = (Donut) obj;
-            for(int i = 0; i < donutList.size(); i++){
-                if(this.flavor.equals(donut.getFlavor())
-                        && this.type.equals(donut.getType())
-                        && this.quantity== donut.getQuantity()){
-                    donutList.remove(donut);
-                    return true;
-                }
-            }
+            donutList.remove(donut);
+            return true;
         }
         return false;
     }

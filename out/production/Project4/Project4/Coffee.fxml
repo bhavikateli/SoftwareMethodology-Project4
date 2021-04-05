@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="472.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project4.OrderCoffeeController">
+<AnchorPane prefHeight="450.0" prefWidth="472.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project4.CoffeeController">
    <children>
       <Text fx:id="coffeeText" layoutX="111.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ordering Coffee">
          <font>
@@ -21,27 +21,27 @@
             <Image url="@../images/coffee.jpeg" />
          </image>
       </ImageView>
-      <CheckBox fx:id="creamCheckboxOption" layoutX="55.0" layoutY="252.0" mnemonicParsing="false" onAction="#calculateTotal" text="Cream">
+      <CheckBox fx:id="creamCheckboxOption" layoutX="55.0" layoutY="252.0" mnemonicParsing="false" text="Cream">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="milkCheckboxOption" layoutX="55.0" layoutY="299.0" mnemonicParsing="false" onAction="#calculateTotal" text="Milk">
+      <CheckBox fx:id="milkCheckboxOption" layoutX="55.0" layoutY="299.0" mnemonicParsing="false" text="Milk">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="whippedCreamCheckboxOption" layoutX="55.0" layoutY="344.0" mnemonicParsing="false" onAction="#calculateTotal" text="Whipped Cream">
+      <CheckBox fx:id="whippedCreamCheckboxOption" layoutX="55.0" layoutY="344.0" mnemonicParsing="false" text="Whipped Cream">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="syrupCheckboxOption" layoutX="183.0" layoutY="252.0" mnemonicParsing="false" onAction="#calculateTotal" text="Syrup">
+      <CheckBox fx:id="syrupCheckboxOption" layoutX="183.0" layoutY="252.0" mnemonicParsing="false" text="Syrup">
          <font>
             <Font size="14.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="caramelCheckboxOption" layoutX="183.0" layoutY="299.0" mnemonicParsing="false" onAction="#calculateTotal" text="Caramel">
+      <CheckBox fx:id="caramelCheckboxOption" layoutX="183.0" layoutY="299.0" mnemonicParsing="false" text="Caramel">
          <font>
             <Font size="14.0" />
          </font>

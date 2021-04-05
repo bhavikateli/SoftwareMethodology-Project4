@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 /**
  *Main method to set up MainController GUI
  *
@@ -13,6 +14,8 @@ import javafx.stage.Stage;
  */
 
 public class Main extends Application {
+    public static Order currOrder = new Order();
+    public static StoreOrder storeOrder = new StoreOrder();
 
     /**
      * Start up the main GUI

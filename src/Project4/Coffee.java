@@ -20,6 +20,8 @@ public class Coffee extends MenuItem implements Customizable{
     private int quantity;
     private int addIns;
     private ArrayList<String> addInList = new ArrayList<>();
+    private final ArrayList<Coffee> coffeeList = new ArrayList<>();
+
 
     /**
      * Initial empty constructor
@@ -125,6 +127,12 @@ public class Coffee extends MenuItem implements Customizable{
      */
     @Override
     public boolean add(Object obj) {
+
+        if(obj instanceof Coffee){
+            Coffee coffee = (Coffee) obj;
+            coffeeList.add(coffee);
+            return true;
+        }
         return false;
     }
 
@@ -135,6 +143,12 @@ public class Coffee extends MenuItem implements Customizable{
      */
     @Override
     public boolean remove(Object obj) {
+
+        if(obj instanceof Coffee){
+            Coffee coffee = (Coffee) obj;
+            coffeeList.remove(coffee);
+            return true;
+        }
         return false;
     }
 }

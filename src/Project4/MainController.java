@@ -17,25 +17,19 @@ import javafx.scene.text.Text;
 public class MainController {
 
     @FXML
-    private Button orderDonutsButton;
-
-    @FXML
-    private Button orderCoffeeButton;
-
-    @FXML
-    private Button yourOrderButton;
-
-    @FXML
-    private Button storeOrderButton;
+    private Button orderDonutsButton, orderCoffeeButton, yourOrderButton, storeOrderButton;
 
     @FXML
     private Text cafeTitleText;
 
+    /**
+     * Method to start up Coffeee GUI
+     */
     @FXML
     void openOrderCoffee() {
         try{
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("OrderCoffee.fxml"));
+            loader.setLocation(getClass().getResource("Coffee.fxml"));
             Scene scene = new Scene(loader.load(), 500, 470);
             Stage stage = new Stage();
             stage.setTitle("Order Coffee");
@@ -54,7 +48,7 @@ public class MainController {
     void openOrderDonuts() {
         try{
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("OrderDonut.fxml"));
+            loader.setLocation(getClass().getResource("Donut.fxml"));
             Scene scene = new Scene(loader.load(), 520, 456);
             Stage stage = new Stage();
             stage.setTitle("Order Donuts");
@@ -91,7 +85,7 @@ public class MainController {
     void openYourOrder() {
         try{
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("YourOrder.fxml"));
+            loader.setLocation(getClass().getResource("Order.fxml"));
             Scene scene = new Scene(loader.load(), 450, 400);
             Stage stage = new Stage();
             stage.setTitle("Your Order");
