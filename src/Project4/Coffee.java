@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Bhavika Teli and Eduardo Alb
  */
 
-public class Coffee extends MenuItem implements Customizable{
+public class Coffee extends MenuItem implements Customizable {
 
     private static final double SHORT_PRICE = 1.99;
     private static final double TALL_PRICE = 2.49;
@@ -26,15 +26,17 @@ public class Coffee extends MenuItem implements Customizable{
     /**
      * Initial empty constructor
      */
-    public Coffee(){}
+    public Coffee() {
+    }
 
     /**
      * Constructor with all of Coffee attributes
-     * @param size of coffee
+     *
+     * @param size     of coffee
      * @param quantity amount to order
-     * @param addIns amount of addIns
+     * @param addIns   amount of addIns
      */
-    public Coffee(String size, int quantity, int addIns){
+    public Coffee(String size, int quantity, int addIns) {
         this.size = size;
         this.quantity = quantity;
         this.addIns = addIns;
@@ -42,22 +44,23 @@ public class Coffee extends MenuItem implements Customizable{
 
     /**
      * Method to calculate price of each coffee
+     *
      * @return price of coffee
      */
-    public double itemPrice(){
+    public double itemPrice() {
         double price = 0;
 
-        if(this.size == "Short"){
-            price =  SHORT_PRICE;
-        }else if(this.size == "Tall"){
+        if (this.size == "Short") {
+            price = SHORT_PRICE;
+        } else if (this.size == "Tall") {
             price = TALL_PRICE;
-        }else if(this.size == "Grande"){
+        } else if (this.size == "Grande") {
             price = GRANDE_PRICE;
-        }else if(this.size == "Venti"){
+        } else if (this.size == "Venti") {
             price = VENTI_PRICE;
         }
-        price = price + (ADDIN_PRICE*addIns);
-        price = price*quantity;
+        price = price + (ADDIN_PRICE * addIns);
+        price = price * quantity;
 
         super.setPrice(price);
         return price;
@@ -65,20 +68,21 @@ public class Coffee extends MenuItem implements Customizable{
 
     /**
      * Helper method to get a string version of Coffee
+     *
      * @return String with coffee information
      */
-    public String toString(){
+    public String toString() {
 
         String addins = "";
 
-        for(int i = 0; i <= addInList.size(); i++){
+        for (int i = 0; i <= addInList.size(); i++) {
 
-            if(addInList.size() == 0){
+            if (addInList.size() == 0) {
                 addins = "No addins";
                 break;
             }
 
-            if(addInList.size() == 1 || i == addInList.size()-1){
+            if (addInList.size() == 1 || i == addInList.size() - 1) {
                 addins = addins + addInList.get(i);
                 break;
             }
@@ -91,24 +95,27 @@ public class Coffee extends MenuItem implements Customizable{
 
     /**
      * Method to update addIn variable and list
+     *
      * @param addIn name
      */
-    public void newAddIn(String addIn){
+    public void newAddIn(String addIn) {
         addInList.add(addIn);
         addIns++;
     }
 
     /**
      * Method to remove addIn variable and list
+     *
      * @param addIn name
      */
-    public void removeAddIn(String addIn){
+    public void removeAddIn(String addIn) {
         addInList.remove(addIn);
         addIns--;
     }
 
     /**
      * Method to return quantity variable
+     *
      * @return quantity variable
      */
     public int getQuantity() {
@@ -117,6 +124,7 @@ public class Coffee extends MenuItem implements Customizable{
 
     /**
      * Method to set int to quantity
+     *
      * @param quantity to set variable to
      */
     public void setQuantity(int quantity) {
@@ -125,6 +133,7 @@ public class Coffee extends MenuItem implements Customizable{
 
     /**
      * Method to return size variable
+     *
      * @return String size
      */
     public String getSize() {
@@ -133,6 +142,7 @@ public class Coffee extends MenuItem implements Customizable{
 
     /**
      * Method to set coffee size
+     *
      * @param size to set variable to
      */
     public void setSize(String size) {
@@ -141,13 +151,14 @@ public class Coffee extends MenuItem implements Customizable{
 
     /**
      * Method to add item
+     *
      * @param obj to add
      * @return true if added, false otherwise
      */
     @Override
     public boolean add(Object obj) {
 
-        if(obj instanceof Coffee){
+        if (obj instanceof Coffee) {
             Coffee coffee = (Coffee) obj;
             coffeeList.add(coffee);
             return true;
@@ -157,13 +168,14 @@ public class Coffee extends MenuItem implements Customizable{
 
     /**
      * Method to remove item
+     *
      * @param obj to remove
      * @return true if removed, false otherwise
      */
     @Override
     public boolean remove(Object obj) {
 
-        if(obj instanceof Coffee){
+        if (obj instanceof Coffee) {
             Coffee coffee = (Coffee) obj;
             coffeeList.remove(coffee);
             return true;

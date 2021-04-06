@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Bhavika Teli and Eduardo Alba
  */
 
-public class Donut extends MenuItem implements Customizable{
+public class Donut extends MenuItem implements Customizable {
 
     final static private double YEAST_PRICE = 1.39;
     final static private double CAKE_PRICE = 1.59;
@@ -17,23 +17,25 @@ public class Donut extends MenuItem implements Customizable{
 
     private int quantity;
     private String type;
-    private  String flavor;
+    private String flavor;
 
     private final ArrayList<Donut> donutList = new ArrayList<>();
 
     /**
      * Initial Constructor
      */
-    public Donut(){ }
+    public Donut() {
+    }
 
     /**
      * Constructor with all of Donut's info
-     * @param price of donut
+     *
+     * @param price    of donut
      * @param quantity number of each donuts
-     * @param type of donut
-     * @param flavor of donut
+     * @param type     of donut
+     * @param flavor   of donut
      */
-    public Donut(double price, int quantity, String type, String flavor){
+    public Donut(double price, int quantity, String type, String flavor) {
         super(price);
         this.quantity = quantity;
         this.type = type;
@@ -42,19 +44,20 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      * Method to calculate price of each donut
+     *
      * @return
      */
-    public double itemPrice(){
+    public double itemPrice() {
         double price = 0;
 
-        if(this.type == "Yeast Donut"){
-            price =  YEAST_PRICE;
-        }else if(this.type == "Donut Hole"){
+        if (this.type == "Yeast Donut") {
+            price = YEAST_PRICE;
+        } else if (this.type == "Donut Hole") {
             price = HOLE_PRICE;
-        }else if(this.type == "Cake Donut"){
+        } else if (this.type == "Cake Donut") {
             price = CAKE_PRICE;
         }
-        price = price*quantity;
+        price = price * quantity;
 
         super.setPrice(price);
         return price;
@@ -62,20 +65,22 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      * Method that converts donut information into a string
+     *
      * @return string
      */
-    public String toString(){
+    public String toString() {
         return type + "," + flavor + "," + quantity;
     }
 
     /**
      * Method to add item
+     *
      * @param obj to add
      * @return true if added, false otherwise
      */
     @Override
     public boolean add(Object obj) {
-        if(obj instanceof Donut){
+        if (obj instanceof Donut) {
             Donut donut = (Donut) obj;
             donutList.add(donut);
             return true;
@@ -85,12 +90,13 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      * Method to remove item
+     *
      * @param obj to remove
      * @return true if removed, false otherwise
      */
     @Override
     public boolean remove(Object obj) {
-        if(obj instanceof Donut){
+        if (obj instanceof Donut) {
             Donut donut = (Donut) obj;
             donutList.remove(donut);
             return true;
@@ -100,22 +106,25 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      * Method to return quantity variable
+     *
      * @return quantity variable
-    */
+     */
     public int getQuantity() {
-    return quantity;
+        return quantity;
     }
 
     /**
      * Method to set int to quantity
+     *
      * @param quantity to set variable to
-    */
+     */
     public void setQuantity(int quantity) {
-    this.quantity = quantity;
+        this.quantity = quantity;
     }
 
     /**
      * Method to return type variable
+     *
      * @return String type
      */
     public String getType() {
@@ -124,6 +133,7 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      * Method to set donut type
+     *
      * @param type to set variable to
      */
     public void setType(String type) {
@@ -132,6 +142,7 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      * Method to return flavor variable
+     *
      * @return String flavor
      */
     public String getFlavor() {
@@ -140,6 +151,7 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      * Method to set flavor of donut
+     *
      * @param flavor to set variable to
      */
     public void setFlavor(String flavor) {

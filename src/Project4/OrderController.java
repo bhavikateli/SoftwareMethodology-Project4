@@ -46,8 +46,8 @@ public class OrderController {
      */
     public void initialize() {
 
-         ArrayList orderStrings = currOrder.getStringArray();
-         orderListView.setItems(FXCollections.observableArrayList(orderStrings));
+        ArrayList orderStrings = currOrder.getStringArray();
+        orderListView.setItems(FXCollections.observableArrayList(orderStrings));
 
         salesTaxTextArea.setEditable(false);
         salesTaxTextArea.setText("$" + (Math.round(currOrder.getSalesTax() * ROUNDER) / ROUNDER));
@@ -65,7 +65,7 @@ public class OrderController {
     @FXML
     public void placeOrder() {
 
-        if(currOrder.getTotal() == 0){
+        if (currOrder.getTotal() == 0) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("Input a a valid item! ");
             alert.showAndWait();
@@ -74,8 +74,8 @@ public class OrderController {
 
         ArrayList<String> order = currOrder.getStringArray();
         String orderString = "";
-        for(int i = 0; i < order.size(); i++){
-            orderString = orderString + order.get(i)+"\n";
+        for (int i = 0; i < order.size(); i++) {
+            orderString = orderString + order.get(i) + "\n";
         }
 
         storeOrder.add(orderString);
@@ -87,7 +87,7 @@ public class OrderController {
 
         currOrder.clear();
 
-        Stage stage=(Stage) placeOrderButton.getScene().getWindow();
+        Stage stage = (Stage) placeOrderButton.getScene().getWindow();
         stage.close();
     }
 
@@ -96,7 +96,7 @@ public class OrderController {
      */
     @FXML
     public void removeItem() {
-        if(orderListView.getSelectionModel().getSelectedItem() != null){
+        if (orderListView.getSelectionModel().getSelectedItem() != null) {
             int index = orderListView.getSelectionModel().getSelectedIndex();
 
             ArrayList<MenuItem> orderList = currOrder.getOrderList();
@@ -112,7 +112,7 @@ public class OrderController {
             currOrder.remove(item);
             ArrayList orderStrings = currOrder.getStringArray();
             orderListView.setItems(FXCollections.observableArrayList(orderStrings));
-        } else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("Select an item to remove!");
             alert.showAndWait();

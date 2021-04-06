@@ -39,7 +39,6 @@ public class CoffeeController {
     private Button addToOrderButton;
 
 
-
     private ObservableList<String> size = FXCollections.observableArrayList("Short", "Tall", "Grande", "Venti");
     private ObservableList<String> quantity = FXCollections.observableArrayList("1", "2", "3", "4", "5");
     final static private double ROUNDER = 100.0;
@@ -59,27 +58,27 @@ public class CoffeeController {
     }
 
     /**
-     *Helper method to count addins
+     * Helper method to count addins
      */
     public void checkboxListeners() {
 
-       caramelCheckboxOption.selectedProperty().addListener(
-               (ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
-                   if(new_val){
-                       currCoffee.newAddIn(caramelCheckboxOption.getText());
-                   }else{
-                       currCoffee.removeAddIn(caramelCheckboxOption.getText());
-                   }
-                   double price = Math.round(currCoffee.itemPrice() * ROUNDER) / ROUNDER;
-                   totalTextArea.setText("$" + price);
-               }
-       );
+        caramelCheckboxOption.selectedProperty().addListener(
+                (ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
+                    if (new_val) {
+                        currCoffee.newAddIn(caramelCheckboxOption.getText());
+                    } else {
+                        currCoffee.removeAddIn(caramelCheckboxOption.getText());
+                    }
+                    double price = Math.round(currCoffee.itemPrice() * ROUNDER) / ROUNDER;
+                    totalTextArea.setText("$" + price);
+                }
+        );
 
         whippedCreamCheckboxOption.selectedProperty().addListener(
                 (ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
-                    if(new_val){
+                    if (new_val) {
                         currCoffee.newAddIn(whippedCreamCheckboxOption.getText());
-                    }else{
+                    } else {
                         currCoffee.removeAddIn(whippedCreamCheckboxOption.getText());
                     }
                     double price = Math.round(currCoffee.itemPrice() * ROUNDER) / ROUNDER;
@@ -89,9 +88,9 @@ public class CoffeeController {
 
         milkCheckboxOption.selectedProperty().addListener(
                 (ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
-                    if(new_val){
+                    if (new_val) {
                         currCoffee.newAddIn(milkCheckboxOption.getText());
-                    }else{
+                    } else {
                         currCoffee.removeAddIn(milkCheckboxOption.getText());
                     }
                     double price = Math.round(currCoffee.itemPrice() * ROUNDER) / ROUNDER;
@@ -101,9 +100,9 @@ public class CoffeeController {
 
         creamCheckboxOption.selectedProperty().addListener(
                 (ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
-                    if(new_val){
+                    if (new_val) {
                         currCoffee.newAddIn(creamCheckboxOption.getText());
-                    }else{
+                    } else {
                         currCoffee.removeAddIn(creamCheckboxOption.getText());
                     }
                     double price = Math.round(currCoffee.itemPrice() * ROUNDER) / ROUNDER;
@@ -113,9 +112,9 @@ public class CoffeeController {
 
         syrupCheckboxOption.selectedProperty().addListener(
                 (ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
-                    if(new_val){
+                    if (new_val) {
                         currCoffee.newAddIn(syrupCheckboxOption.getText());
-                    }else{
+                    } else {
                         currCoffee.removeAddIn(syrupCheckboxOption.getText());
                     }
                     double price = Math.round(currCoffee.itemPrice() * ROUNDER) / ROUNDER;
@@ -129,9 +128,9 @@ public class CoffeeController {
      * Method to calculate subtotal of coffee
      */
     @FXML
-    public void calculateTotal(){
+    public void calculateTotal() {
 
-        if(sizeCombobox.getValue() != null && quantityCombobox.getValue() != null) {
+        if (sizeCombobox.getValue() != null && quantityCombobox.getValue() != null) {
             currCoffee.setSize(sizeCombobox.getValue());
             currCoffee.setQuantity(Integer.parseInt(quantityCombobox.getValue()));
 
@@ -148,17 +147,17 @@ public class CoffeeController {
      */
     @FXML
     void addToOrder() {
-        if(sizeCombobox.getValue() != null && quantityCombobox.getValue() != null) {
+        if (sizeCombobox.getValue() != null && quantityCombobox.getValue() != null) {
             currOrder.add(currCoffee);
             currOrder.setSubTotal(Math.round(currCoffee.itemPrice() * ROUNDER) / ROUNDER);
             currOrder.setSalesTax();
             currOrder.setTotal();
-            Stage stage=(Stage) addToOrderButton.getScene().getWindow();
+            Stage stage = (Stage) addToOrderButton.getScene().getWindow();
             stage.close();
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Order has been added!");
             alert.showAndWait();
-        } else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("Input size and quantity!");
             alert.showAndWait();

@@ -5,7 +5,9 @@ import javafx.scene.control.Button;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.IOException;
+
 import javafx.scene.text.Text;
 
 /**
@@ -27,7 +29,7 @@ public class MainController {
      */
     @FXML
     void openOrderCoffee() {
-        try{
+        try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("Coffee.fxml"));
             Scene scene = new Scene(loader.load(), 500, 470);
@@ -36,7 +38,7 @@ public class MainController {
             stage.setScene(scene);
             scene.getStylesheets().add(getClass().getResource("Coffee.css").toExternalForm());
             stage.show();
-        } catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -46,7 +48,7 @@ public class MainController {
      */
     @FXML
     void openOrderDonuts() {
-        try{
+        try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("Donut.fxml"));
             Scene scene = new Scene(loader.load(), 520, 456);
@@ -55,7 +57,7 @@ public class MainController {
             stage.setScene(scene);
             scene.getStylesheets().add(getClass().getResource("Donut.css").toExternalForm());
             stage.show();
-        } catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -65,7 +67,7 @@ public class MainController {
      */
     @FXML
     void openStoreOrder() {
-        try{
+        try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("StoreOrder.fxml"));
             Scene scene = new Scene(loader.load(), 370, 400);
@@ -74,7 +76,7 @@ public class MainController {
             stage.setScene(scene);
             scene.getStylesheets().add(getClass().getResource("Main.css").toExternalForm());
             stage.show();
-        } catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -84,7 +86,7 @@ public class MainController {
      */
     @FXML
     void openYourOrder() {
-        try{
+        try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("Order.fxml"));
             Scene scene = new Scene(loader.load(), 450, 400);
@@ -93,7 +95,7 @@ public class MainController {
             stage.setScene(scene);
             scene.getStylesheets().add(getClass().getResource("Main.css").toExternalForm());
             stage.show();
-        } catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

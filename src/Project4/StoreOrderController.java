@@ -45,7 +45,7 @@ public class StoreOrderController {
     @FXML
     private Button cancelOrderButton;
 
-    private ObservableList<String> orderNumber = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6");
+    private ObservableList<String> orderNumber = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
     final static private double ROUNDER = 100.0;
 
 
@@ -61,13 +61,13 @@ public class StoreOrderController {
      * Helper method to show orders according to
      */
     @FXML
-    public void showOrder(){
+    public void showOrder() {
 
         int index = orderNumberCombobox.getSelectionModel().getSelectedIndex();
         ArrayList order = storeOrder.getOrderList();
         ArrayList orderPrices = storeOrder.getOrderPriceList();
 
-        if(order.size() == 0 || index >= order.size()) {
+        if (order.size() == 0 || index >= order.size()) {
             String orderString = "No known order";
             ordersListView.setItems(FXCollections.observableArrayList(orderString));
             return;
@@ -81,29 +81,37 @@ public class StoreOrderController {
     }
 
     @FXML
-    public void removeOrder(){
+    public void removeOrder() {
 
-            int index = orderNumberCombobox.getSelectionModel().getSelectedIndex();
-            ArrayList order = storeOrder.getOrderList();
-            String orderString = (String) order.get(index);
-            ArrayList orderPrices = storeOrder.getOrderPriceList();
+        int index = orderNumberCombobox.getSelectionModel().getSelectedIndex();
+        ArrayList order = storeOrder.getOrderList();
 
-            double total = (double) orderPrices.get(index);
-            storeOrder.remove(orderString);
-            storeOrder.removePrice(total);
+        if (index < 0 || index >= order.size()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Select a valid order from combobox to remove!");
+            alert.showAndWait();
+            return;
+        }
 
-            showOrder();
+        String orderString = (String) order.get(index);
+        ArrayList orderPrices = storeOrder.getOrderPriceList();
+
+        double total = (double) orderPrices.get(index);
+        storeOrder.remove(orderString);
+        storeOrder.removePrice(total);
+
+        showOrder();
 
     }
 
     @FXML
-    public void fileExport(){
+    public void fileExport() {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Save the File");
         File file = chooser.showSaveDialog(new Stage());
         String path = file.getAbsolutePath();
 
-        if(file == null || path == null){
+        if (file == null || path == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("Invalid file/path");
             alert.showAndWait();
@@ -115,26 +123,24 @@ public class StoreOrderController {
         try {
             FileWriter myWriter = new FileWriter(path);
 
-            if(orderList.size() == 0){
+            if (orderList.size() == 0) {
                 myWriter.write("No orders in database");
                 myWriter.close();
                 return;
             }
-            for(int i = 0; i < orderList.size() ; i++) {
+            for (int i = 0; i < orderList.size(); i++) {
                 myWriter.write("---------------Order" + (i + 1) + "---------------");
                 myWriter.write('\n');
                 myWriter.write(orderList.get(i));
                 myWriter.write('\n');
-                myWriter.write("Total:" +  (Math.round((orderPriceList.get(i)) * ROUNDER) / ROUNDER));
+                myWriter.write("Total:" + (Math.round((orderPriceList.get(i)) * ROUNDER) / ROUNDER));
                 myWriter.write('\n');
 
 
             }
             myWriter.close();
+        } catch (IOException e) {
         }
-        catch (IOException e) {
-        }
-
 
 
     }

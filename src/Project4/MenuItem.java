@@ -2,6 +2,7 @@ package Project4;
 
 /**
  * Superclass of all menu items
+ *
  * @author Bhavika Teli and Eduardo Alba
  */
 public class MenuItem {
@@ -11,18 +12,21 @@ public class MenuItem {
     /**
      * Initial empty constructor
      */
-    public MenuItem(){}
+    public MenuItem() {
+    }
 
     /**
      * Constructor with price
+     *
      * @param price for menu-item
      */
-    public MenuItem(double price){
+    public MenuItem(double price) {
         this.price = price;
     }
 
     /**
      * Method to return price variable
+     *
      * @return price variable
      */
     public double getPrice() {
@@ -31,6 +35,7 @@ public class MenuItem {
 
     /**
      * Method to set double to price
+     *
      * @param price to set variable to
      */
     public void setPrice(double price) {

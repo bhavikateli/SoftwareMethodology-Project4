@@ -4,6 +4,7 @@ public interface Customizable {
 
     /**
      * Method to add item
+     *
      * @param obj to add
      * @return true if added, false otherwise
      */
@@ -11,6 +12,7 @@ public interface Customizable {
 
     /**
      * Method to remove item
+     *
      * @param obj to remove
      * @return true if removed, false otherwise
      */

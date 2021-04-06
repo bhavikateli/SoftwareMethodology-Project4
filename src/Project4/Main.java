@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 
 /**
- *Main method to set up MainController GUI
+ * Main method to set up MainController GUI
  *
  * @author Bhavika Teli and Eduardo Alba
  */
@@ -21,7 +21,7 @@ public class Main extends Application {
      * Start up the main GUI
      */
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         primaryStage.setTitle("RU Cafe");
         Scene scene = new Scene(root, 600, 350);

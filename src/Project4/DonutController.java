@@ -7,8 +7,10 @@ import javafx.scene.text.Text;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import javafx.stage.Stage;
+
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+
 import static Project4.Main.currOrder;
 
 
@@ -72,11 +74,11 @@ public class DonutController {
         String type = donutSelectionComboBox.getValue();
         currDonut.setType(type);
 
-        if(type.equals("Yeast Donut")){
+        if (type.equals("Yeast Donut")) {
             flavorSelectionListView.setItems(yeastFlavors);
-        }else if(type.equals("Donut Hole")){
+        } else if (type.equals("Donut Hole")) {
             flavorSelectionListView.setItems(holeFlavors);
-        }else if(type.equals("Cake Donut")){
+        } else if (type.equals("Cake Donut")) {
             flavorSelectionListView.setItems(cakeFlavors);
         }
     }
@@ -102,6 +104,7 @@ public class DonutController {
 
     /**
      * Helper method to calculate subtotal
+     *
      * @return total price of orders
      */
     @FXML
@@ -109,7 +112,7 @@ public class DonutController {
 
         double total = 0;
 
-        for(int i = 0; i < orderPrices.size(); i++){
+        for (int i = 0; i < orderPrices.size(); i++) {
             total = total + orderPrices.get(i);
         }
 
@@ -121,14 +124,15 @@ public class DonutController {
 
     /**
      * Helper method for remove method when removing price from OrderPrices list
+     *
      * @return
      */
-    public int getIndex(String orderToRemove){
+    public int getIndex(String orderToRemove) {
 
-        for(int index = 0; index < orders.size(); index++){
-           if(orders.get(index).equals(orderToRemove)){
-               return index;
-           }
+        for (int index = 0; index < orders.size(); index++) {
+            if (orders.get(index).equals(orderToRemove)) {
+                return index;
+            }
         }
         return NOT_FOUND;
     }
@@ -139,37 +143,38 @@ public class DonutController {
     @FXML
     void addToOrder() {
 
-        if(Bindings.isEmpty(finalDonutsListView.getItems()).get() == false){
+        if (Bindings.isEmpty(finalDonutsListView.getItems()).get() == false) {
 
-            for(int i = 0; i < orders.size(); i++){
+            for (int i = 0; i < orders.size(); i++) {
                 Donut donut = getDetails(orders.get(i), i);
                 currOrder.add(donut);
             }
-            double total= Double.parseDouble(calculateSubtotal());
+            double total = Double.parseDouble(calculateSubtotal());
             currOrder.setSubTotal(total);
             currOrder.setSalesTax();
             currOrder.setTotal();
-            Stage stage=(Stage) addDonutButton.getScene().getWindow();
+            Stage stage = (Stage) addDonutButton.getScene().getWindow();
             stage.close();
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Order has been added!");
             alert.showAndWait();
-        } else{
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setHeaderText("Input a type, flavor and quantity!");
-        alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Input a type, flavor and quantity!");
+            alert.showAndWait();
         }
 
     }
 
     /**
      * Helper method to create a donut
+     *
      * @param donutDetails information about donut
-     * @param i index of donut in orders
+     * @param i            index of donut in orders
      * @return donut with information from string donutDetails
      */
-    public Donut getDetails(String donutDetails, int i){
+    public Donut getDetails(String donutDetails, int i) {
 
         String type = "";
         String flavor = "";
@@ -177,13 +182,13 @@ public class DonutController {
         double price = orderPrices.get(i);
 
         StringTokenizer tokenizer = new StringTokenizer(donutDetails, ",");
-        while (tokenizer.hasMoreTokens()){
+        while (tokenizer.hasMoreTokens()) {
             type = tokenizer.nextToken();
             flavor = tokenizer.nextToken();
             quantity = tokenizer.nextToken();
         }
 
-        Donut donut = new Donut(price,Integer.parseInt(quantity),type,flavor );
+        Donut donut = new Donut(price, Integer.parseInt(quantity), type, flavor);
         return donut;
     }
 
@@ -193,9 +198,9 @@ public class DonutController {
     @FXML
     void removeDonut() {
 
-        if(finalDonutsListView.getSelectionModel().getSelectedItem() != null){
+        if (finalDonutsListView.getSelectionModel().getSelectedItem() != null) {
             int index = getIndex(finalDonutsListView.getSelectionModel().getSelectedItem());
-            if(index != NOT_FOUND){
+            if (index != NOT_FOUND) {
                 orderPrices.remove(index);
                 orders.remove(finalDonutsListView.getSelectionModel().getSelectedItem());
                 finalDonutsListView.setItems(FXCollections.observableArrayList(orders));

@@ -1,4 +1,5 @@
 package Project4;
+
 import java.util.ArrayList;
 
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * @author Bhavika Teli and Eduardo Alba
  */
 
-public class Order implements Customizable{
+public class Order implements Customizable {
 
     double subTotal = 0;
     double salesTax = 0;
@@ -18,15 +19,16 @@ public class Order implements Customizable{
 
     /**
      * Method to add item
+     *
      * @param obj to add
      * @return true if added, false otherwise
      */
-    public boolean add(Object obj){
+    public boolean add(Object obj) {
         if (obj instanceof Donut) {
             Donut donutCoffee = (Donut) obj;
             orderList.add(donutCoffee);
             return true;
-        }else if(obj instanceof Coffee){
+        } else if (obj instanceof Coffee) {
             Coffee coffee = (Coffee) obj;
             orderList.add(coffee);
             return true;
@@ -37,7 +39,7 @@ public class Order implements Customizable{
     /**
      * Helper method to clear order list
      */
-    public void clear(){
+    public void clear() {
         orderList.clear();
         subTotal = 0;
         salesTax = 0;
@@ -47,12 +49,13 @@ public class Order implements Customizable{
 
     /**
      * Helper method to populate order view list
+     *
      * @return string version of orderList
      */
-    public ArrayList<String> getStringArray(){
+    public ArrayList<String> getStringArray() {
 
         ArrayList<String> result = new ArrayList<>();
-        for(int i = 0; i < orderList.size(); i++){
+        for (int i = 0; i < orderList.size(); i++) {
             result.add(orderList.get(i).toString());
         }
 
@@ -61,26 +64,28 @@ public class Order implements Customizable{
 
     /**
      * Helper method to return orderList
+     *
      * @return orderList Array
      */
-    public ArrayList getOrderList(){
+    public ArrayList getOrderList() {
         return orderList;
     }
 
     /**
      * Method to remove item
+     *
      * @param obj to remove
      * @return true if removed, false otherwise
      */
-    public boolean remove(Object obj){
-        if(orderList.size() <= 0) {
+    public boolean remove(Object obj) {
+        if (orderList.size() <= 0) {
             return false;
         }
         if (obj instanceof Donut) {
             Donut donutCoffee = (Donut) obj;
             orderList.remove(donutCoffee);
             return true;
-        }else if(obj instanceof Coffee){
+        } else if (obj instanceof Coffee) {
             Coffee coffee = (Coffee) obj;
             orderList.remove(coffee);
             return true;
@@ -90,9 +95,10 @@ public class Order implements Customizable{
 
     /**
      * Helper method to set subtotal
+     *
      * @param subtotal to set variable to
      */
-    public void setSubTotal(double subtotal){
+    public void setSubTotal(double subtotal) {
         this.subTotal = this.subTotal + subtotal;
     }
 
@@ -106,34 +112,36 @@ public class Order implements Customizable{
     /**
      * Helper method to set total
      */
-    public void setTotal(){
+    public void setTotal() {
         this.total = subTotal + salesTax;
     }
 
     /**
      * Helper method to get subtotal
+     *
      * @return subtotal variable
      */
-    public double getSubTotal(){
+    public double getSubTotal() {
         return subTotal;
     }
 
     /**
      * Helper method to get salesTax
+     *
      * @return salesTax variable
      */
-    public double getSalesTax(){
+    public double getSalesTax() {
         return salesTax;
     }
 
     /**
      * Helper method to get total
+     *
      * @return total variable
      */
-    public double getTotal(){
+    public double getTotal() {
         return total;
     }
-
 
 
 }
