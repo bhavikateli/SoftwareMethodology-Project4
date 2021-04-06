@@ -8,17 +8,23 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="364.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project4.StoreOrderController">
-   <children>
-      <Text fx:id="storeText" layoutX="106.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store Order">
-         <font>
-            <Font name="American Typewriter" size="27.0" />
-         </font></Text>
-      <ComboBox fx:id="orderNumberCombobox" layoutX="21.0" layoutY="93.0" onAction="#showOrder" prefWidth="150.0" promptText="Order Number" />
-      <Text fx:id="totalText" layoutX="214.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" />
-      <TextField fx:id="totalTextArea" layoutX="254.0" layoutY="93.0" prefHeight="27.0" prefWidth="96.0" />
-      <ListView fx:id="ordersListView" layoutX="21.0" layoutY="138.0" prefHeight="181.0" prefWidth="317.0" />
-      <Button fx:id="exportOrderButton" layoutX="232.0" layoutY="337.0" mnemonicParsing="false" onAction="#fileExport" text="Export Order" />
-      <Button fx:id="cancelOrderButton" layoutX="121.0" layoutY="337.0" mnemonicParsing="false" onAction="#removeOrder" text="Cancel Order" />
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="364.0" xmlns="http://javafx.com/javafx/15.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project4.StoreOrderController">
+    <children>
+        <Text fx:id="storeText" layoutX="106.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Store Order">
+            <font>
+                <Font name="American Typewriter" size="27.0"/>
+            </font>
+        </Text>
+        <ComboBox fx:id="orderNumberCombobox" layoutX="21.0" layoutY="93.0" onAction="#showOrder" prefWidth="150.0"
+                  promptText="Order Number"/>
+        <Text fx:id="totalText" layoutX="214.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:"/>
+        <TextField fx:id="totalTextArea" layoutX="254.0" layoutY="93.0" prefHeight="27.0" prefWidth="96.0"/>
+        <ListView fx:id="ordersListView" layoutX="21.0" layoutY="138.0" prefHeight="181.0" prefWidth="317.0"/>
+        <Button fx:id="exportOrderButton" layoutX="232.0" layoutY="337.0" mnemonicParsing="false" onAction="#fileExport"
+                text="Export Order"/>
+        <Button fx:id="cancelOrderButton" layoutX="121.0" layoutY="337.0" mnemonicParsing="false"
+                onAction="#removeOrder" text="Cancel Order"/>
+    </children>
 </AnchorPane>

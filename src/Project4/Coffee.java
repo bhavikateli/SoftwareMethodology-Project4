@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * An instance of menuItem created to store data about coffees
  *
- * @author Bhavika Teli and Eduardo Alb
+ * @author Bhavika Teli and Eduardo Alba
  */
 
 public class Coffee extends MenuItem implements Customizable {

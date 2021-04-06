@@ -1,16 +1,16 @@
 
-AnchorPane{
+AnchorPane {
     -fx-background-color: #f8e992;
     -fx-font-weight: bold;
 }
 
-Button{
+Button {
     -fx-font-weight: bold;
     -fx-text-fill: #a53e0e;
     -fx-background-color: rgb(246, 192, 170);
 }
 
-ComboBox{
+ComboBox {
     -fx-font-weight: bold;
     -fx-text-fill: #a53e0e;
     -fx-background-color: rgb(246, 192, 170);

@@ -1,5 +1,12 @@
 package Project4;
 
+
+/**
+ * Interface to be implemented by every item
+ *
+ * @author Bhavika Teli and Eduardo Alba
+ */
+
 public interface Customizable {
 
     /**

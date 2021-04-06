@@ -80,6 +80,9 @@ public class StoreOrderController {
         totalTextArea.setText("$" + totatInt);
     }
 
+    /**
+     * Method to give functionality to removing an order
+     */
     @FXML
     public void removeOrder() {
 
@@ -104,6 +107,9 @@ public class StoreOrderController {
 
     }
 
+    /**
+     * Method to export all orders into a file
+     */
     @FXML
     public void fileExport() {
         FileChooser chooser = new FileChooser();

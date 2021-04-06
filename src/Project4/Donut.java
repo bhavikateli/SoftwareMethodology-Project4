@@ -45,7 +45,7 @@ public class Donut extends MenuItem implements Customizable {
     /**
      * Method to calculate price of each donut
      *
-     * @return
+     * @return price of item
      */
     public double itemPrice() {
         double price = 0;

@@ -8,20 +8,29 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="456.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project4.DonutController">
-   <children>
-      <Text fx:id="donutText" fill="#a53e0e" layoutX="138.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ordering  Donuts">
-         <font>
-            <Font name="American Typewriter" size="30.0" />
-         </font></Text>
-      <ComboBox fx:id="donutSelectionComboBox" layoutX="33.0" layoutY="100.0" onAction="#flavorDropdown" prefHeight="27.0" prefWidth="179.0" promptText="Donut Selection" />
-      <ListView fx:id="flavorSelectionListView" layoutX="33.0" layoutY="172.0" prefHeight="169.0" prefWidth="179.0" />
-      <ListView fx:id="finalDonutsListView" layoutX="300.0" layoutY="171.0" prefHeight="169.0" prefWidth="180.0" />
-      <ComboBox fx:id="donutAmountComboBox" layoutX="224.0" layoutY="181.0" prefHeight="27.0" prefWidth="65.0" promptText="#?" />
-      <Button fx:id="addDonutButton" layoutX="239.0" layoutY="228.0" mnemonicParsing="false" onAction="#addDonut" text="&gt;&gt;" />
-      <Button fx:id="removeDonutButton" layoutX="239.0" layoutY="278.0" mnemonicParsing="false" onAction="#removeDonut" text="&lt;&lt;" />
-      <Text fx:id="subtotalText" fill="#a53e0e" layoutX="103.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sub-Total:" />
-      <TextField fx:id="subtotalTextArea" layoutX="172.0" layoutY="370.0" prefHeight="27.0" prefWidth="100.0" />
-      <Button fx:id="addToOrderButton" layoutX="300.0" layoutY="370.0" mnemonicParsing="false" onAction="#addToOrder" text="Add to Order" />
-   </children>
+<AnchorPane prefHeight="456.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/15.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project4.DonutController">
+    <children>
+        <Text fx:id="donutText" fill="#a53e0e" layoutX="138.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Ordering  Donuts">
+            <font>
+                <Font name="American Typewriter" size="30.0"/>
+            </font>
+        </Text>
+        <ComboBox fx:id="donutSelectionComboBox" layoutX="33.0" layoutY="100.0" onAction="#flavorDropdown"
+                  prefHeight="27.0" prefWidth="179.0" promptText="Donut Selection"/>
+        <ListView fx:id="flavorSelectionListView" layoutX="33.0" layoutY="172.0" prefHeight="169.0" prefWidth="179.0"/>
+        <ListView fx:id="finalDonutsListView" layoutX="300.0" layoutY="171.0" prefHeight="169.0" prefWidth="180.0"/>
+        <ComboBox fx:id="donutAmountComboBox" layoutX="224.0" layoutY="181.0" prefHeight="27.0" prefWidth="65.0"
+                  promptText="#?"/>
+        <Button fx:id="addDonutButton" layoutX="239.0" layoutY="228.0" mnemonicParsing="false" onAction="#addDonut"
+                text="&gt;&gt;"/>
+        <Button fx:id="removeDonutButton" layoutX="239.0" layoutY="278.0" mnemonicParsing="false"
+                onAction="#removeDonut" text="&lt;&lt;"/>
+        <Text fx:id="subtotalText" fill="#a53e0e" layoutX="103.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Sub-Total:"/>
+        <TextField fx:id="subtotalTextArea" layoutX="172.0" layoutY="370.0" prefHeight="27.0" prefWidth="100.0"/>
+        <Button fx:id="addToOrderButton" layoutX="300.0" layoutY="370.0" mnemonicParsing="false" onAction="#addToOrder"
+                text="Add to Order"/>
+    </children>
 </AnchorPane>

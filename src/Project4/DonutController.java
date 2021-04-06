@@ -125,7 +125,7 @@ public class DonutController {
     /**
      * Helper method for remove method when removing price from OrderPrices list
      *
-     * @return
+     * @return index where item is located
      */
     public int getIndex(String orderToRemove) {
 
